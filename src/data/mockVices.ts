@@ -1,4 +1,4 @@
-import { Vice } from '../types/vice';
+import type { Vice } from '../types/vice';
 
 export const mockVices: Vice[] = [
   { id: '1', name: 'Cigarro', icon: 'cigarette', currentStreak: 8, bestStreak: 14 },
