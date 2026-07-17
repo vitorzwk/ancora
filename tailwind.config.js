@@ -12,6 +12,8 @@ export default {
           100: '#E7EBE4',
           600: '#2C4A52',
         },
+        paper: '#FAF6ED',
+        ink: '#2C4A52',
         resist: { 100: '#EAF1EA', 600: '#3E6146', bar: '#6B8F71' },
         partial: { 100: '#FBF2E7', 600: '#8A5B22', bar: '#D9A15D' },
         relapse: { 100: '#FBEBE8', 600: '#8A3F30', bar: '#C97064' },

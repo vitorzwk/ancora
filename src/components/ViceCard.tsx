@@ -1,5 +1,5 @@
 import { Cigarette, Smartphone } from 'lucide-react';
-import { Vice } from '../types/vice';
+import type { Vice } from '../types/vice';
 
 const icons: Record<string, React.ElementType> = {
   cigarette: Cigarette,
