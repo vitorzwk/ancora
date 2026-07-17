@@ -19,10 +19,10 @@ export function ViceCard({ vice }: ViceCardProps) {
       <div className="flex justify-between items-center mb-2.5">
         <div className="flex items-center gap-2">
           <Icon size={18} className="text-anchor-600" />
-          <span className="text-[15px] font-medium">{vice.name}</span>
+            <span className="text-[15px] font-medium">{vice.name}</span>
         </div>
-        <span className="text-xs text-gray-500 font-mono">recorde {vice.bestStreak}d</span>
-      </div>
+            <span className="text-xs text-gray-500 font-mono">recorde {vice.bestStreak}d</span>
+        </div>
 
       <div className="relative h-2 bg-anchor-100 rounded-full mb-1.5">
         <div

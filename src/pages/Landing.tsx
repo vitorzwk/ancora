@@ -29,7 +29,7 @@ export function Landing() {
           </div>
 
           <h1 className="font-display font-semibold text-4xl md:text-[42px] leading-tight text-ink mb-5">
-            Registrado,<br />não contado.
+            O mais difícil,<br />é começar.
           </h1>
 
           <p className="text-sm leading-relaxed text-gray-600 max-w-sm mb-7">
