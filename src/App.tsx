@@ -1,15 +1,17 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Dashboard } from './pages/Dashboard';
+// App.tsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Landing } from './pages/Landing';
-function App() {
+import { Dashboard } from './pages/Dashboard';
+import { Sobre } from './pages/Sobre';
+
+export default function App() {
   return (
-<BrowserRouter>
-  <Routes>
-    <Route path="/" element={<Landing />} />
-    <Route path="/app" element={<Dashboard />} />
-  </Routes>
-</BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/app" element={<Dashboard />} />
+        <Route path="/sobre" element={<Sobre />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

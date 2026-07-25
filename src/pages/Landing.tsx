@@ -7,7 +7,7 @@ export function Landing() {
           / âncora <span className="font-mono font-normal text-[11px] text-gray-500">v0.1</span>
         </span>
         <div className="flex gap-2.5 items-center">
-          <span className="text-xs text-gray-500">sobre</span>
+          <Link to="/sobre" className="text-xs text-gray-500 hover:text-ink transition-colors">sobre</Link>
           <button className="bg-ink text-paper rounded-md px-3.5 py-1.5 text-xs font-medium">
             <Link
                 to="/app"
