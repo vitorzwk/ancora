@@ -1,6 +1,6 @@
 // pages/Sobre.tsx
 import { Link } from 'react-router-dom';
-import { AnchorIllustration } from '../components/AnchorIllustration';
+import { FarolIllustration } from '../components/FarolIllustration';
 
 export function Sobre() {
   return (
@@ -53,7 +53,7 @@ export function Sobre() {
         </div>
 
         <div className="flex-[0.9] flex justify-center">
-          <AnchorIllustration />
+          <FarolIllustration />
         </div>
       </section>
     </div>
