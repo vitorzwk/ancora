@@ -1,6 +1,7 @@
 // components/ViceCard.tsx
 import { Cigarette, Smartphone } from 'lucide-react';
 import type { Vice } from '../types/vice';
+import type { CheckInAction } from '../types/checkin';
 
 const icons: Record<string, React.ElementType> = {
   cigarette: Cigarette,
@@ -34,9 +35,10 @@ function TideBar({ percent }: { percent: number }) {
 
 interface ViceCardProps {
   vice: Vice;
+  onAction: (action: CheckInAction) => void;
 }
 
-export function ViceCard({ vice }: ViceCardProps) {
+export function ViceCard({ vice, onAction }: ViceCardProps) {
   const Icon = icons[vice.icon];
   const percent = Math.min((vice.currentStreak / vice.bestStreak) * 100, 100);
 
@@ -60,13 +62,22 @@ export function ViceCard({ vice }: ViceCardProps) {
       </div>
 
       <div className="flex gap-2 shrink-0">
-        <button className="bg-resist-100 text-resist-600 rounded-lg px-3.5 py-2 text-xs font-medium hover:brightness-95 transition">
+        <button
+          onClick={() => onAction('resisti')}
+          className="bg-resist-100 text-resist-600 rounded-lg px-3.5 py-2 text-xs font-medium hover:brightness-95 transition"
+        >
           Resisti
         </button>
-        <button className="bg-partial-100 text-partial-600 rounded-lg px-3.5 py-2 text-xs font-medium hover:brightness-95 transition">
+        <button
+          onClick={() => onAction('parcial')}
+          className="bg-partial-100 text-partial-600 rounded-lg px-3.5 py-2 text-xs font-medium hover:brightness-95 transition"
+        >
           Parcial
         </button>
-        <button className="bg-relapse-100 text-relapse-600 rounded-lg px-3.5 py-2 text-xs font-medium hover:brightness-95 transition">
+        <button
+          onClick={() => onAction('recai')}
+          className="bg-relapse-100 text-relapse-600 rounded-lg px-3.5 py-2 text-xs font-medium hover:brightness-95 transition"
+        >
           Recaí
         </button>
       </div>

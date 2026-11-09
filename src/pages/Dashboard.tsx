@@ -1,11 +1,25 @@
 // pages/Dashboard.tsx
+import { useState } from 'react';
 import { Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { mockVices } from '../data/mockVices';
 import { ViceCard } from '../components/ViceCard';
+import { CheckInModal } from '../components/CheckInModal';
+import { PanicMode } from '../components/PanicMode';
+import { useCheckIns } from '../hooks/useCheckIns';
+import type { CheckInAction } from '../types/checkin';
+
+interface PendingCheckIn {
+  viceId: string;
+  viceName: string;
+  action: CheckInAction;
+}
 
 export function Dashboard() {
   const totalDays = mockVices.reduce((acc, v) => acc + v.currentStreak, 0);
+  const { add } = useCheckIns();
+  const [panicOpen, setPanicOpen] = useState(false);
+  const [pending, setPending] = useState<PendingCheckIn | null>(null);
 
   return (
     <div className="min-h-screen bg-paper text-ink font-sans">
@@ -32,7 +46,10 @@ export function Dashboard() {
               Cada dia é uma escolha, não um placar.
             </h1>
           </div>
-          <button className="shrink-0 border border-relapse-bar text-relapse-600 rounded-full px-4 py-2 text-xs font-medium flex items-center gap-1.5 hover:bg-relapse-100 transition-colors">
+          <button
+            onClick={() => setPanicOpen(true)}
+            className="shrink-0 border border-relapse-bar text-relapse-600 rounded-full px-4 py-2 text-xs font-medium flex items-center gap-1.5 hover:bg-relapse-100 transition-colors"
+          >
             <Phone size={14} />
             Preciso de ajuda agora
           </button>
@@ -41,7 +58,13 @@ export function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6">
           <div className="space-y-4">
             {mockVices.map((vice) => (
-              <ViceCard key={vice.id} vice={vice} />
+              <ViceCard
+                key={vice.id}
+                vice={vice}
+                onAction={(action: CheckInAction) =>
+                  setPending({ viceId: vice.id, viceName: vice.name, action })
+                }
+              />
             ))}
           </div>
 
@@ -59,6 +82,23 @@ export function Dashboard() {
           </aside>
         </div>
       </section>
+
+      {pending && (
+        <CheckInModal
+          action={pending.action}
+          viceName={pending.viceName}
+          onSkip={() => {
+            add({ viceId: pending.viceId, action: pending.action });
+            setPending(null);
+          }}
+          onSave={(data) => {
+            add({ viceId: pending.viceId, action: pending.action, ...data });
+            setPending(null);
+          }}
+        />
+      )}
+
+      {panicOpen && <PanicMode onClose={() => setPanicOpen(false)} />}
     </div>
   );
 }
