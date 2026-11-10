@@ -1,41 +1,42 @@
 import { Link } from 'react-router-dom';
+
 export function Landing() {
   return (
-    <div className="min-h-screen bg-paper text-ink font-sans">
-      <header className="flex justify-between items-center px-7 py-3.5 border-b border-anchor-100">
+    <div className="min-h-screen bg-paper text-ink font-sans overflow-x-hidden">
+      <header className="flex justify-between items-center px-4 sm:px-7 py-3.5 border-b border-anchor-100">
         <span className="font-display font-semibold text-[15px] text-ink">
           / âncora <span className="font-mono font-normal text-[11px] text-gray-500">v0.1</span>
         </span>
-        <div className="flex gap-2.5 items-center">
-          <Link to="/sobre" className="text-xs text-gray-500 hover:text-ink transition-colors">sobre</Link>
-          <button className="bg-ink text-paper rounded-md px-3.5 py-1.5 text-xs font-medium">
-            <Link
-                to="/app"
-                className="bg-ink text-paper rounded-md px-3.5 py-1.5 text-xs font-medium"
-            >   
+        <div className="flex gap-3 items-center">
+          <Link to="/sobre" className="text-xs text-gray-500 hover:text-ink transition-colors">
+            sobre
+          </Link>
+          <Link
+            to="/app"
+            className="bg-ink text-paper rounded-md px-3.5 py-1.5 text-xs font-medium hover:opacity-90 transition-opacity"
+          >
             começar
-</Link>
-          </button>
+          </Link>
         </div>
       </header>
 
-      <section className="flex flex-col md:flex-row items-center gap-5 px-7 py-14 md:py-20 max-w-5xl mx-auto">
-        <div className="flex-[1.1]">
-          <div className="flex items-center gap-1.5 mb-4.5">
+      <section className="flex flex-col md:flex-row items-center gap-8 md:gap-5 px-4 sm:px-7 py-10 md:py-20 max-w-5xl mx-auto">
+        <div className="w-full md:flex-[1.1]">
+          <div className="flex items-center gap-1.5 mb-4">
             <span className="w-1.5 h-1.5 bg-resist-bar inline-block" />
             <span className="font-mono text-[11px] tracking-wide text-gray-500">
               UM PROJETO PESSOAL
             </span>
           </div>
 
-          <h1 className="font-display font-semibold text-4xl md:text-[42px] leading-tight text-ink mb-5">
+          <h1 className="font-display font-semibold text-3xl sm:text-4xl md:text-[42px] leading-tight text-ink mb-5">
             O mais difícil,<br />é começar.
           </h1>
 
           <p className="text-sm leading-relaxed text-gray-600 max-w-sm mb-7">
             Âncora não conta seus dias como um placar. Cada recaída vira dado,
             não fracasso. A ideia é simples: te dar um lugar firme pra voltar,
-            sempre que precisar. Você não está sozinho nessa, e não precisa se sentir 
+            sempre que precisar. Você não está sozinho nessa, e não precisa se sentir
             constrangido por tentar melhorar.
           </p>
 
@@ -45,7 +46,7 @@ export function Landing() {
           </p>
         </div>
 
-        <div className="flex-[0.9] flex justify-center">
+        <div className="w-full md:flex-[0.9] flex justify-center">
           <AnchorIllustration />
         </div>
       </section>
@@ -55,7 +56,14 @@ export function Landing() {
 
 function AnchorIllustration() {
   return (
-    <svg width="150" height="220" viewBox="0 0 150 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="150"
+      height="220"
+      viewBox="0 0 150 220"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="max-w-full h-auto"
+    >
       <circle cx="75" cy="24" r="12" stroke="#2C4A52" strokeWidth="2.5" />
       <line x1="75" y1="36" x2="75" y2="170" stroke="#2C4A52" strokeWidth="2.5" />
       <line x1="55" y1="70" x2="95" y2="70" stroke="#2C4A52" strokeWidth="2.5" />

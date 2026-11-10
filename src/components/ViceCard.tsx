@@ -43,8 +43,9 @@ export function ViceCard({ vice, onAction }: ViceCardProps) {
   const percent = Math.min((vice.currentStreak / vice.bestStreak) * 100, 100);
 
   return (
-    <div className="flex items-center gap-6 bg-white rounded-2xl p-5 border border-anchor-100">
-      <div className="flex items-center gap-3 w-44 shrink-0">
+    <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-5 bg-white rounded-2xl p-4 md:p-5 border border-anchor-100">
+      {/* ícone + nome */}
+      <div className="flex items-center gap-3 w-full md:w-40 md:shrink-0 min-w-0">
         <div className="w-9 h-9 rounded-full bg-anchor-50 flex items-center justify-center shrink-0">
           <Icon size={17} className="text-anchor-600" />
         </div>
@@ -54,29 +55,32 @@ export function ViceCard({ vice, onAction }: ViceCardProps) {
         </div>
       </div>
 
-      <div className="flex-1 min-w-[140px]">
+      {/* maré */}
+      <div className="w-full md:flex-1 md:min-w-[140px]">
         <TideBar percent={percent} />
         <p className="text-xs text-gray-500 mt-2.5">
-          maré atual: <span className="text-gray-800 font-medium font-mono">{vice.currentStreak} dias</span>
+          maré atual:{' '}
+          <span className="text-gray-800 font-medium font-mono">{vice.currentStreak} dias</span>
         </p>
       </div>
 
-      <div className="flex gap-2 shrink-0">
+      {/* botões: 3 colunas iguais no celular */}
+      <div className="grid grid-cols-3 md:flex gap-2 w-full md:w-auto md:shrink-0">
         <button
           onClick={() => onAction('resisti')}
-          className="bg-resist-100 text-resist-600 rounded-lg px-3.5 py-2 text-xs font-medium hover:brightness-95 transition"
+          className="bg-resist-100 text-resist-600 rounded-lg px-3.5 py-2.5 md:py-2 text-xs font-medium hover:brightness-95 transition"
         >
           Resisti
         </button>
         <button
           onClick={() => onAction('parcial')}
-          className="bg-partial-100 text-partial-600 rounded-lg px-3.5 py-2 text-xs font-medium hover:brightness-95 transition"
+          className="bg-partial-100 text-partial-600 rounded-lg px-3.5 py-2.5 md:py-2 text-xs font-medium hover:brightness-95 transition"
         >
           Parcial
         </button>
         <button
           onClick={() => onAction('recai')}
-          className="bg-relapse-100 text-relapse-600 rounded-lg px-3.5 py-2 text-xs font-medium hover:brightness-95 transition"
+          className="bg-relapse-100 text-relapse-600 rounded-lg px-3.5 py-2.5 md:py-2 text-xs font-medium hover:brightness-95 transition"
         >
           Recaí
         </button>
