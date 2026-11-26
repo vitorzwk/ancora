@@ -1,4 +1,4 @@
-# Âncora 🌱
+# Âncora 🌊
 Aplicação web para monitoramento de hábitos, com design acolhedor e foco em bem-estar emocional. O Âncora ajuda você a construir e manter hábitos saudáveis, acompanhar seu progresso diário e oferece um modo de emergência para momentos de recaída.
 
 🔗 Acesse: ancora-olive.vercel.app
